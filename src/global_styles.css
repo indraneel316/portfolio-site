@@ -1,0 +1,122 @@
+@import 'aos/dist/aos.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Black, Beige, Terracotta Color Scheme */
+  --bg-primary: #000000;
+  --bg-secondary: #151515;
+  --bg-tertiary: #1a1a1a;
+  
+  /* Text colors - Beige tones */
+  --text-primary: #f5f5dc;
+  --text-secondary: #e8dcc6;
+  --text-muted: #d4c4a8;
+  
+  /* Accent colors - Terracotta */
+  --accent-primary: #d97757;
+  --accent-secondary: #e07a5f;
+  --accent-hover: #e88a6f;
+  
+  /* Legacy support (keeping for compatibility) */
+  --slate: #e8dcc6;
+  --light-slate: #f0e6d2;
+  --lightest-slate: #f5f5dc;
+  --white: #f5f5dc;
+  --green: #d97757;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-primary) var(--bg-primary);
+  scroll-behavior: smooth;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+body {
+  @apply antialiased;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .text-slate {
+    color: var(--slate);
+  }
+
+  .nav-link {
+    @apply relative text-sm font-medium;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--accent-primary);
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 -bottom-1 w-0 h-[2px] transition-all duration-300;
+    background-color: var(--accent-primary);
+  }
+
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+
+  .section-container {
+    @apply max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold mb-8 flex items-center;
+    color: var(--accent-primary);
+  }
+
+  .section-title::before {
+    @apply mr-2 text-xl;
+    color: var(--accent-primary);
+  }
+
+  .vertical-text {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 0.1em;
+    font-family: monospace;
+  }
+
+  /* Enhanced card styling */
+  .card-enhanced {
+    background-color: var(--bg-secondary);
+    border: 1px solid rgba(217, 119, 87, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .card-enhanced:hover {
+    background-color: var(--bg-tertiary);
+    border-color: rgba(217, 119, 87, 0.4);
+    box-shadow: 0 0 20px rgba(217, 119, 87, 0.2);
+  }
+
+  /* Enhanced button hover effects */
+  .btn-enhanced:hover {
+    box-shadow: 0 0 20px rgba(217, 119, 87, 0.4);
+    transform: translateY(-2px);
+  }
+
+  /* Improve image rendering quality */
+  img {
+    image-rendering: auto;
+    image-rendering: -webkit-optimize-contrast;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    will-change: transform;
+  }
+}

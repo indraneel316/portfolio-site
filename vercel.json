@@ -1,0 +1,11 @@
+{
+  "buildCommand": "npm run build:prod",
+  "outputDirectory": "dist/portfolio/browser",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+

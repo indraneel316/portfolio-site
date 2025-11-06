@@ -1,0 +1,76 @@
+<header [ngClass]="{'hidden': isHeaderHidden}">
+  <nav class="fixed w-full z-50 backdrop-blur-sm overflow-hidden" style="background-color: rgba(0, 0, 0, 0.8);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-20">
+        <!-- Logo -->
+        <div class="flex items-center">
+          <a href="#" class="text-xl font-bold transition-colors" style="color: var(--accent-primary);" onmouseover="this.style.color='var(--accent-hover)'" onmouseout="this.style.color='var(--accent-primary)'">
+            <div class="h-10 w-10 rounded-full shadow-md flex items-center justify-center transition-colors"
+                 style="border: 2px solid var(--accent-primary); background-color: var(--bg-primary);"
+                 onmouseover="this.style.backgroundColor='rgba(217, 119, 87, 0.1)'"
+                 onmouseout="this.style.backgroundColor='var(--bg-primary)'">
+              <img src="assets/logo-i.svg" alt="I Logo" class="h-6 w-6" />
+            </div>
+          </a>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#" class="nav-link" data-aos="fade-down" data-aos-delay="100">Home</a>
+          <a href="#experience" class="nav-link" data-aos="fade-down" data-aos-delay="200">Experience</a>
+          <a href="#education" class="nav-link" data-aos="fade-down" data-aos-delay="250">Education</a>
+          <a href="#certifications" class="nav-link" data-aos="fade-down" data-aos-delay="400">Certifications</a>
+          <a href="#projects" class="nav-link" data-aos="fade-down" data-aos-delay="300">Projects</a>
+          <a href="#contact" class="nav-link" data-aos="fade-down" data-aos-delay="500">Contact</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="md:hidden flex items-center p-2 rounded-lg transition-colors" (click)="toggleMenu()"
+          [attr.aria-label]="isMenuOpen ? 'Close menu' : 'Open menu'">
+          <svg class="w-6 h-6" style="color: var(--accent-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path *ngIf="!isMenuOpen" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16" />
+            <path *ngIf="isMenuOpen" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Sidebar -->
+    <div class="md:hidden fixed inset-0 backdrop-blur-sm z-40 transition-opacity duration-300"
+      style="background-color: rgba(10, 10, 10, 0.5);"
+      [ngClass]="{ 'opacity-100 visible': isMenuOpen, 'opacity-0 invisible': !isMenuOpen }" (click)="toggleMenu()">
+    </div>
+
+    <div
+      class="fixed right-0 top-0 w-[min(75vw,320px)] h-full z-50 shadow-xl transform transition-transform duration-300"
+      style="background-color: var(--bg-tertiary);"
+      [ngClass]="{ 'translate-x-0': isMenuOpen, 'translate-x-full': !isMenuOpen }">
+
+      <!-- Close Button -->
+      <div class="flex justify-between items-center px-6 py-4 border-b border-gray-800">
+        <span class="text-lg font-semibold text-white">Menu</span>
+        <button (click)="toggleMenu()" aria-label="Close menu"
+          class="p-2 rounded-lg transition-colors"
+          style="color: var(--accent-primary);"
+          onmouseover="this.style.color='var(--accent-hover)'"
+          onmouseout="this.style.color='var(--accent-primary)'">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Links -->
+      <div class="flex flex-col p-8 space-y-6">
+        <a href="#" class="nav-link" (click)="toggleMenu()">Home</a>
+        <a href="#experience" class="nav-link" (click)="toggleMenu()">Experience</a>
+        <a href="#education" class="nav-link" (click)="toggleMenu()">Education</a>
+        <a href="#certifications" class="nav-link" (click)="toggleMenu()">Certifications</a>
+        <a href="#projects" class="nav-link" (click)="toggleMenu()">Projects</a>
+        <a href="#contact" class="nav-link" (click)="toggleMenu()">Contact</a>
+      </div>
+    </div>
+  </nav>
+</header>

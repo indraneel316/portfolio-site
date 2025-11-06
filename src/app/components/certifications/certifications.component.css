@@ -1,0 +1,13 @@
+.section-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--accent-primary);  /* Terracotta */
+    text-align: center;
+    margin-bottom: 20px;
+}

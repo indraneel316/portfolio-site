@@ -1,0 +1,27 @@
+<section id="certifications" class="section-container">
+    <h2 class="section-title text-center mb-6" data-aos="fade-up">Certifications</h2>
+  
+    <div class="space-y-6">
+      <div *ngFor="let cert of certifications" 
+           class="p-6 rounded-lg shadow-md flex items-center space-x-4 card-enhanced">
+        
+        <!-- SVG Logo -->
+        <img [src]="getCertificationLogo(cert.title)" alt="Certification Logo" class="w-12 h-12 flex-shrink-0">
+        
+        <!-- Certification Details -->
+        <div>
+          <h3 class="text-2xl font-bold text-lightest-slate">{{ cert.title }}</h3>
+          <p class="text-slate">
+            <span style="color: var(--accent-primary);">{{ cert.issuedDate }}</span>
+          </p>
+          <a [href]="cert.link" target="_blank" rel="noopener noreferrer"
+             class="mt-2 inline-block px-6 py-2 rounded-lg transition-all btn-enhanced"
+             style="color: var(--accent-primary); border: 1px solid var(--accent-primary);"
+             onmouseover="this.style.backgroundColor='rgba(217, 119, 87, 0.1)'"
+             onmouseout="this.style.backgroundColor='transparent'">
+            View Certification
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
